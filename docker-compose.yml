@@ -1,0 +1,12 @@
+version: '2'
+services:
+  apiserver:
+    build: apiserver
+    command: python server.py
+  nginx:
+    image: nginx
+    ports:
+      - 8044:8044
+    volumes:
+     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+     - ./web:/web/:ro
